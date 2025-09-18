@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- カスタムテキストシャドウ --- */
+@layer utilities {
+  .text-shadow-md {
+    text-shadow: 
+      0 1px 1px var(--tw-text-shadow-color, #0000001a),
+      0 1px 2px var(--tw-text-shadow-color, #0000001a),
+      0 2px 4px var(--tw-text-shadow-color, #0000001a);
+  }
+
+  /* テキストシャドウの色設定 */
+  .text-shadow-black {
+    --tw-text-shadow-color: rgba(0, 0, 0, 0.3);
+  }
+
+  .text-shadow-gray {
+    --tw-text-shadow-color: rgba(100, 100, 100, 0.3);
+  }
+}
