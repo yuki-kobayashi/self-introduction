@@ -5,8 +5,8 @@
       <img
         src="/profile.jpg"
         alt="プロフィール写真"
-        class="w-[300px] h-[300px] object-cover rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white"
-        />
+        class="w-[300px] h-[300px] object-cover rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white mb-6 md:mb-0 md:mr-12"
+      />
 
       <!-- 右側テキスト -->
       <div class="text-center md:text-left">
