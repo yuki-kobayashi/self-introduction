@@ -4,12 +4,12 @@
       <!-- プロフィール画像 -->
       <div class="mb-6 md:mb-0 md:mr-12">
         <NuxtImg
-          src="/profile.jpg"
-          alt="プロフィール写真"
-          width="300"
-          height="300"
-          class="rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white"
-        />
+            src="/profile.jpg"
+            alt="プロフィール写真"
+            width="300"
+            height="300"
+            class="w-[300px] h-[300px] object-cover rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white"
+            />
       </div>
 
       <!-- 右側テキスト -->
