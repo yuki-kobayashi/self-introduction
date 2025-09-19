@@ -2,15 +2,11 @@
   <transition name="fade-slide" appear>
     <div class="flex flex-col md:flex-row items-center justify-center min-h-[75vh] px-6">
       <!-- プロフィール画像 -->
-      <div class="mb-6 md:mb-0 md:mr-12">
-        <NuxtImg
-            src="/profile.jpg"
-            alt="プロフィール写真"
-            width="300"
-            height="300"
-            class="w-[300px] h-[300px] object-cover rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white"
-            />
-      </div>
+      <img
+        src="/profile.jpg"
+        alt="プロフィール写真"
+        class="w-[300px] h-[300px] object-cover rounded-full shadow-lg ring-4 ring-gray-500 ring-offset-2 ring-offset-white"
+        />
 
       <!-- 右側テキスト -->
       <div class="text-center md:text-left">
