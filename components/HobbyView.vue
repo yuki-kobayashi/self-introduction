@@ -1,49 +1,65 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen bg-gray-50 px-6 py-12 space-y-16">
+  <div class="flex flex-col items-center justify-center min-h-screen px-6 py-12 space-y-16">
     <h2 class="text-4xl font-bold mb-10">趣味・好きなもの</h2>
 
-  <div
-    v-for="(hobby, index) in hobbies"
-    :key="index"
-    :class="[
-      'flex flex-col md:items-start space-y-6 md:space-y-0 md:space-x-8 w-full max-w-4xl',
-      index === 2 || index === 4 || index === 6 ? 'md:flex-row-reverse' : 'md:flex-row' // 音楽は左右反転
-    ]"
-  >
-      <!-- 左または右: 画像カルーセル -->
-      <div class="w-full md:w-1/2">
+    <div
+      v-for="(hobby, index) in hobbies"
+      :key="index"
+      :class="[
+        'flex flex-col md:items-start w-full max-w-4xl',
+        index === 1 || index === 3 || index === 5 || index === 7 ? 'md:flex-row-reverse' : 'md:flex-row'
+      ]"
+    >
+      <!-- 画像カルーセル -->
+      <div
+        class="w-full md:w-1/2"
+        :class="index === 1 || index === 3 || index === 5 || index === 7 ? 'md:ml-8' : 'md:mr-8'"
+      >
         <div class="relative rounded-xl shadow-lg">
           <div
             ref="carousels"
             class="flex gap-4 overflow-x-auto snap-x snap-mandatory scroll-smooth px-4 py-6 scrollbar-hide"
           >
             <div
-              v-for="(img, idx) in hobby.images"
+              v-for="(media, idx) in hobby.images"
               :key="idx"
               class="carousel-item flex-shrink-0 w-[300px] md:w-[460px] h-72 md:h-96 snap-center"
             >
+              <!-- 画像の場合 -->
               <img
-                :src="img"
+                v-if="media.type === 'image'"
+                :src="media.src"
                 alt="趣味の画像"
-                class="w-full h-full object-contain rounded-xl bg-gray-100"
+                class="w-full h-full object-contain rounded-xl"
               />
+
+              <!-- 動画の場合 -->
+              <video
+                v-else-if="media.type === 'video'"
+                :src="media.src"
+                controls
+                class="w-full h-full object-contain rounded-xl"
+              ></video>
             </div>
           </div>
 
           <!-- 左右ボタン -->
           <button
             @click="prev(index)"
-            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow hover:scale-105"
-          >‹</button>
-
+            class="absolute left-2 top-1/2 -translate-y-1/2 bg-white text-blue-500 p-2 rounded-full shadow-lg ring-2 ring-blue-400 hover:ring-blue-500 transition"
+          >
+            ‹
+          </button>
           <button
             @click="next(index)"
-            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/90 p-2 rounded-full shadow hover:scale-105"
-          >›</button>
+            class="absolute right-2 top-1/2 -translate-y-1/2 bg-white text-blue-500 p-2 rounded-full shadow-lg ring-2 ring-blue-400 hover:ring-blue-500 transition"
+          >
+            ›
+          </button>
         </div>
       </div>
 
-      <!-- 右: 説明テキスト -->
+      <!-- 説明テキスト -->
       <div class="w-full md:w-1/2 text-gray-700">
         <h3 class="text-2xl font-semibold mb-4">{{ hobby.title }}</h3>
         <p v-html="hobby.description"></p>
@@ -68,15 +84,36 @@ const hobbies = [
       シーズン平均10回ほど滑ります。<br>
       お気に入りのスキー場は舞子、ロッテアライ、ネコママウンテンです。
     `,
-    images: ['/snow1.jpg', '/snow2.jpg', '/snow3.jpg']
+    images: [
+      { type: 'image', src: '/snow1.jpg' },
+      { type: 'image', src: '/snow2.jpg' },
+      { type: 'image', src: '/snow3.jpg' },
+    ]
   },
   {
-    title: 'スポーツ観戦⚽',
+    title: '車・ドライブ🚙',
+    description: `
+      車が好きでスポーツカーを乗り継いでおり、今は赤のWRXに乗っています。<br>
+      週末に天気が良ければ洗車して海沿いをドライブしたりします。
+    `,
+    images: [
+      { type: 'image', src: '/car1.jpg' },
+      { type: 'image', src: '/car2.png' },
+      { type: 'image', src: '/car3.jpg' },
+    ]
+  },
+  {
+    title: 'スポーツ観戦⚽🏎',
     description: `
       学生時代サッカーをやっていたこともあり、今でも代表戦やアルビの試合を見ることがあります。(選手にはあまり詳しくないです)<br><br>
       日本ではマイナーなジャンルですが、モータースポーツも好きで、特にF1のレースはシーズン通してテレビ観戦してます。<br>
     `,
-    images: ['/sports1.jpg', '/sports2.jpg', '/sports3.jpg', '/sports4.jpg']
+    images: [
+      { type: 'image', src: '/sports1.jpg' },
+      { type: 'image', src: '/sports2.jpg' },
+      { type: 'image', src: '/sports3.jpg' },
+      { type: 'image', src: '/sports4.jpg' },
+    ]
   },
   {
     title: '音楽🎸',
@@ -86,7 +123,10 @@ const hobbies = [
       UVERworld、WANIMA<br>等々です。<br><br>
       ロックバンドに縛らなくても大丈夫なので、オススメのアーティストがいたら是非教えてください。
     `,
-    images: ['/music1.jpg', '/music2.jpg']
+    images: [
+      { type: 'image', src: '/music1.jpg' },
+      { type: 'image', src: '/music2.jpg' },
+    ]
   },
   {
     title: 'ゲーム🎮',
@@ -97,7 +137,12 @@ const hobbies = [
       YouTubeでゲーム実況を見ることもあります。<br><br>
       自慢ですが、Switch2が2台当たりました。
     `,
-    images: ['/game1.jpg', '/game2.jpg', '/game3.jpg', '/game4.jpg']
+    images: [
+      { type: 'image', src: '/game1.jpg' },
+      { type: 'image', src: '/game2.jpg' },
+      { type: 'image', src: '/game3.jpg' },
+      { type: 'image', src: '/game4.jpg' },
+    ]
   },
   {
     title: '漫画・アニメ📚',
@@ -107,15 +152,22 @@ const hobbies = [
       です。<br><br>
       漫画でもアニメでも、オススメがあれば是非教えてください。
     `,
-    images: ['/anime1.jpg']
+    images: [
+      { type: 'image', src: '/anime1.jpg' },
+    ]
   },
   {
     title: '動物🐶',
     description: `
       動物は全般的に好きで、自宅でもミニチュアシュナウザーを2頭飼っていたり、自室でアクアリウムを立ち上げています。<br>
-      余談ですが、この前日課の夜のウォーキング中、信濃川沿いの遊歩道でキツネに会いました。
+      余談ですが、この前日課の夜のウォーキング中、信濃川沿いの遊歩道でキツネに会いました。<span class="text-red-500">　※動画音出ます。</span>
     `,
-    images: ['/animal1.jpg','/animal2.jpg','/animal3.jpg']
+    images: [
+      { type: 'image', src: '/animal1.jpg' },
+      { type: 'image', src: '/animal2.jpg' },
+      { type: 'image', src: '/animal3.jpg' },
+      { type: 'video', src: '/animal1.mp4' },
+    ]
   },
   {
     title: 'スイーツ🍰',
@@ -125,7 +177,11 @@ const hobbies = [
       今まで食べた中で一番美味しかったスイーツは、銀座ねんりん家のバームクーヘンです。<br><br>
       オススメのスイーツがあれば是非教えてください。
     `,
-    images: ['/sweets1.jpg','/sweets2.jpg','/sweets3.jpg']
+    images: [
+      { type: 'image', src: '/sweets1.jpg' },
+      { type: 'image', src: '/sweets2.jpg' },
+      { type: 'image', src: '/sweets3.jpg' },
+    ]
   },
 ]
 

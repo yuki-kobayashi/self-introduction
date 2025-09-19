@@ -1,6 +1,6 @@
 <template>
   <transition name="fade-slide" appear>
-    <div class="flex flex-col md:flex-row items-center justify-center min-h-screen px-6">
+    <div class="flex flex-col md:flex-row items-center justify-center min-h-[75vh] px-6">
       <!-- プロフィール画像 -->
       <div class="mb-6 md:mb-0 md:mr-12">
         <NuxtImg
@@ -24,12 +24,17 @@
 
         <!-- 丸ボタン -->
         <div class="flex justify-center md:justify-start space-x-6">
-          <button @click="$emit('navigate', 'career')"
-            class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center font-bold hover:scale-105 transition">
+          <button
+            @click="$emit('navigate', 'career')"
+            class="w-20 h-20 bg-yellow-500 rounded-full flex items-center justify-center font-bold hover:scale-105 transition float-animate"
+          >
             職務経歴・<br>スキル
           </button>
-          <button @click="$emit('navigate', 'hobby')"
-            class="w-20 h-20 bg-cyan-400 rounded-full flex items-center justify-center font-bold hover:scale-105 transition">
+
+          <button
+            @click="$emit('navigate', 'hobby')"
+            class="w-20 h-20 bg-cyan-400 rounded-full flex items-center justify-center font-bold hover:scale-105 transition float-animate delay"
+          >
             趣味・<br>好きなもの
           </button>
         </div>
@@ -41,3 +46,28 @@
 <script setup>
 defineEmits(['navigate'])
 </script>
+
+<style scoped>
+/* ふよふよ浮くアニメーション */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* 丸ボタン用アニメーション */
+.float-animate {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 2つ目のボタンを少し遅らせて自然な動きに */
+.float-animate.delay {
+  animation-delay: 1.5s;
+}
+</style>
