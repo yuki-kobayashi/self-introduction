@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center justify-center min-h-screen px-6 py-12 space-y-16">
+  <div class="flex flex-col text-white items-center justify-center min-h-screen px-6 py-12 space-y-16">
     <h2 class="text-4xl font-bold mb-10">趣味・好きなもの</h2>
 
     <div
@@ -60,7 +60,7 @@
       </div>
 
       <!-- 説明テキスト -->
-      <div class="w-full md:w-1/2 text-gray-700">
+      <div class="w-full md:w-1/2 text-white">
         <h3 class="text-2xl font-semibold mb-4">{{ hobby.title }}</h3>
         <p v-html="hobby.description"></p>
       </div>
@@ -93,7 +93,7 @@ const hobbies = [
   {
     title: '車・ドライブ🚙',
     description: `
-      車が好きで、特にスポーツカーを見かけると目で追ってしまう人種です。自身も今は赤のWRXに乗っています。<br>
+      車が好きで、特にスポーツカーを見かけると目で追ってしまう人種です。自身も今はWRXという車に乗っています。<br>
       週末に天気が良ければ洗車して海沿いをドライブしたりします。
     `,
     images: [
@@ -147,7 +147,7 @@ const hobbies = [
     title: '漫画・アニメ📚',
     description: `
       有名どころではありますが、最近の漫画作品だとスパイファミリー、ダンダダンを読んでます。<br>
-      10月からの秋アニメで注目しているのはスパイファミリー(3期)、ワンパンマン(3期)、僕のヒーローアカデミア(8期)、3年Z組銀八先生、野原ひろし昼メシの流儀<br>
+      10月からの秋アニメで注目しているのはスパイファミリー(3期)、ワンパンマン(3期)、僕のヒーローアカデミア(8期)、3年Z組銀八先生<br>
       です。<br><br>
 
       漫画でもアニメでも、オススメがあれば是非教えてください。

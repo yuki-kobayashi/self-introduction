@@ -10,8 +10,8 @@
 
       <!-- 右側テキスト -->
       <div class="text-center md:text-left">
-        <h1 class="text-5xl font-bold mb-4">自己紹介</h1>
-        <p class="text-lg text-gray-700 max-w-md mb-8">
+        <h1 class="text-5xl text-white font-bold mb-4">自己紹介</h1>
+        <p class="text-lg text-white max-w-md mb-8">
           初めまして！10月よりお世話になります、小林です。<br>
           長年社内SEとしてサポート業務を中心に経験してきましたが、WEBエンジニアとしてはまだまだ学習中です。<br>
           そのため、最初はご迷惑をおかけすることも多々あるかと思いますが、1日でも早く業務に貢献できるよう努力してまいりますので、どうぞよろしくお願いいたします。<br>

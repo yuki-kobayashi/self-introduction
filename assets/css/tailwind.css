@@ -27,3 +27,31 @@
     background-size: 40px 40px;
   }
 }
+
+/* ページ切り替え用フェードアニメーション */
+.fade-slide-enter-active,
+.fade-slide-leave-active {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.fade-slide-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-slide-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-slide-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-slide-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
