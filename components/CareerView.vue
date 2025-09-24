@@ -1,6 +1,8 @@
 <template>
   <div class="flex flex-col items-center justify-center min-h-screen px-6">
-    <h2 class="text-4xl text-white font-bold mb-10">職務経歴</h2>
+    <div class="heading-line-container">
+        <h2 class="heading-line scrollin">職務経歴</h2>
+    </div>
     <div class="max-w-3xl w-full space-y-8">
       <!-- 経歴リスト -->
       <div class="space-y-6">

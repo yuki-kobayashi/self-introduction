@@ -119,7 +119,7 @@ const hobbies = [
     description: `
       音楽はロックバンドの曲をよく聴いており、好きなバンドは　Alexandros、Base Ball Bear、BLUE ENCOUNT、ELLEGARDEN、FLOW、L'Arc～en～Ciel、MAGIC OF LiFE、
       MY FIRST STORY、RADWIMPS、SCANDAL、Silent Siren、SPYAIR、sumika、SUPER BEAVER、THE ORAL CIGARETTES、The Winking Owl、UNISON SQUARE GARDEN、
-      UVERworld、WANIMA<br>等々です。<br><br>
+      UVERworld、WANIMA、魔法少女になり隊、緑黄色社会<br>等々です。<br><br>
       ロックバンドに縛らなくても大丈夫なので、オススメのアーティストがいたら是非教えてください。
     `,
     images: [
