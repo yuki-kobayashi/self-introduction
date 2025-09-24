@@ -1,7 +1,10 @@
 <template>
   <div class="flex flex-col text-white items-center justify-center min-h-screen px-6 py-12 space-y-16">
-    <h2 class="text-4xl font-bold mb-10">趣味・好きなもの</h2>
-
+    <div class="heading-line-container">
+        <h2 class="glowing-line mb-10">
+          趣味・好きなもの
+        </h2>
+    </div>
     <div
       v-for="(hobby, index) in hobbies"
       :key="index"
