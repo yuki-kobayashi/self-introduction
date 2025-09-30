@@ -13,7 +13,7 @@
         <h1 class="text-5xl text-white font-bold mb-4">自己紹介</h1>
         <p class="text-lg text-white max-w-md mb-8">
           初めまして！10月よりお世話になります、小林です。<br>
-          長年社内SEとしてサポート業務を中心に経験してきており、WEBエンジニアとしてはまだまだ学習中です。(Macを業務で扱うのも初めてです...)<br>
+          長年社内SEとしてサポート業務を中心に経験してきており、WEBエンジニアとしてはまだまだ学習中です。(Macに触れるのもほぼ初めてです...)<br>
           そのため、最初はご迷惑をおかけすることも多々あるかと思いますが、1日でも早く業務に貢献できるよう努力してまいりますので、どうぞよろしくお願いいたします。<br>
           インドア・アウトドア共に多趣味で、共通の話題もいろいろあるかと思いますので、気軽にお声がけいただけると嬉しいです。
         </p>
@@ -40,12 +40,12 @@
 </template>
 
 <script setup>
-defineEmits(['navigate'])
+defineEmits(['navigate']) // この宣言により、$emit('navigate', 'career')のようにイベントを発火できる
 </script>
 
 <style scoped>
-/* ふよふよ浮くアニメーション */
-@keyframes float {
+/* 浮遊アニメーション */
+@keyframes float { /* @keyframes：CSSアニメーションを定義するための構文 */
   0% {
     transform: translateY(0px);
   }
@@ -62,7 +62,7 @@ defineEmits(['navigate'])
   animation: float 3s ease-in-out infinite;
 }
 
-/* 2つ目のボタンを少し遅らせて自然な動きに */
+/* 2つ目のボタンの動きを少し遅らせる */
 .float-animate.delay {
   animation-delay: 1.5s;
 }

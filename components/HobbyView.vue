@@ -1,5 +1,6 @@
 <template>
   <div class="flex flex-col text-white items-center justify-center min-h-screen px-6 py-12 space-y-16">
+    <!-- カスタムスタイル -->
     <div class="heading-line-container">
         <h2 class="glowing-line mb-10">
           趣味・好きなもの
@@ -35,7 +36,6 @@
                 alt="趣味の画像"
                 class="w-full h-full object-contain rounded-xl"
               />
-
               <!-- 動画の場合 -->
               <video
                 v-else-if="media.type === 'video'"
@@ -45,7 +45,6 @@
               ></video>
             </div>
           </div>
-
           <!-- 左右ボタン -->
           <button
             @click="prev(index)"
@@ -61,7 +60,6 @@
           </button>
         </div>
       </div>
-
       <!-- 説明テキスト -->
       <div class="w-full md:w-1/2 text-white">
         <h3 class="text-2xl font-semibold mb-4">{{ hobby.title }}</h3>
@@ -75,7 +73,8 @@
 import { ref } from 'vue'
 
 /**
- * 複数のカルーセルを配列で管理
+ * カルーセルを配列化
+ * スクロール位置を制御するのにDOMへのアクセスが必要なため、refを使う
  */
 const carousels = ref([])
 
@@ -121,7 +120,7 @@ const hobbies = [
     title: '音楽🎸',
     description: `
       音楽はロックバンドの曲をよく聴いており、好きなバンドは　Alexandros、Base Ball Bear、BLUE ENCOUNT、ELLEGARDEN、FLOW、L'Arc～en～Ciel、MAGIC OF LiFE、
-      MY FIRST STORY、RADWIMPS、SCANDAL、Silent Siren、SPYAIR、sumika、SUPER BEAVER、THE ORAL CIGARETTES、The Winking Owl、UNISON SQUARE GARDEN、
+      Mrs. Green Apple、MY FIRST STORY、My Hair is Bad、RADWIMPS、SCANDAL、Silent Siren、SPYAIR、sumika、SUPER BEAVER、THE ORAL CIGARETTES、The Winking Owl、UNISON SQUARE GARDEN、
       UVERworld、WANIMA、魔法少女になり隊、緑黄色社会<br>等々です。<br><br>
       ロックバンドに縛らなくても大丈夫なので、オススメのアーティストがいたら是非教えてください。
     `,
@@ -205,7 +204,7 @@ function next(index) {
   const el = carousels.value[index]
   if (!el) return
   const step = getItemWidth(el)
-
+  /* カルーセルの位置を計算し、先頭に戻すかどうかを分岐 */
   if (el.scrollLeft + el.clientWidth >= el.scrollWidth - step / 2) {
     el.scrollTo({ left: 0, behavior: 'smooth' })
   } else {
@@ -230,6 +229,7 @@ function prev(index) {
 </script>
 
 <style>
+/* カルーセルのスクロールバー非表示 */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -237,6 +237,7 @@ function prev(index) {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+/* 画像回転情報を正しくする */
 img {
   image-orientation: from-image;
 }

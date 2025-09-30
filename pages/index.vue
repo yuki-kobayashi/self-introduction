@@ -1,6 +1,6 @@
 <template>
   <div class="relative min-h-screen text-gray-800">
-    <!-- 新しい3D背景 -->
+    <!-- 3D背景 -->
     <SpaceBackground />
 
     <!-- ヘッダー -->
@@ -30,6 +30,7 @@
     <!-- コンテンツ部分 -->
     <main class="pt-20 pb-10 relative z-10">
       <transition name="fade-slide" mode="out-in">
+         <!-- is属性：指定したコンポーネントを動的に表示　key属性：設定することで、Vueは「別のコンポーネント」と判断して破棄してから新規作成　navigateが親、emitが子の関係 -->
         <component
           :is="currentView"
           :key="currentSection"
@@ -48,12 +49,12 @@ import ProfileView from '~/components/ProfileView.vue'
 import CareerView from '~/components/CareerView.vue'
 import HobbyView from '~/components/HobbyView.vue'
 
-const currentSection = ref('profile')
-const sections = { profile: ProfileView, career: CareerView, hobby: HobbyView }
-const currentView = computed(() => sections[currentSection.value])
-
+const currentSection = ref('profile') // 初期値のセクション
+const sections = { profile: ProfileView, career: CareerView, hobby: HobbyView } // 各セクションのキーとコンポーネントを対応付けたオブジェクト
+const currentView = computed(() => sections[currentSection.value]) // 現在のセクションキーから表示するコンポーネントを選択
+// 画面切り替え関数
 const changeSection = (section) => {
-  currentSection.value = section
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  currentSection.value = section // セクション(画面)を更新
+  window.scrollTo({ top: 0, behavior: 'smooth' }) // 更新と同時に画面トップへスクロール
 }
 </script>

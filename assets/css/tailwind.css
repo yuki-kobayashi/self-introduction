@@ -56,24 +56,24 @@
   transform: translateY(-30px);
 }
 
-/* ===== 見出し全体 ===== */
+/* 見出し全体 */
 .heading-line-container {
   position: relative;
   width: 100%;
   text-align: center;
-  margin-bottom: 2.5rem; /* Tailwindのmb-10 */
+  margin-bottom: 2.5rem;
 }
 
 .glowing-line {
   position: relative;
-  display: block; /* inline-block → block に変更 */
+  display: block;
   padding-bottom: 0.5rem;
   font-size: 2.25rem;
   font-weight: 700;
   color: #fff;
-  overflow: visible; /* はみ出し部分も見えるように */
-  width: 350px; /* 線の長さをここで指定 */
-  margin: 0 auto; /* 中央寄せ */
+  overflow: visible;
+  width: 350px;
+  margin: 0 auto;
 }
 
 /* 白いベースの下線 */
@@ -102,15 +102,15 @@
 /* 光の移動アニメーション */
 @keyframes line-glow {
   0% {
-    transform: translateX(0%); /* 右端の外側からスタート */
+    transform: translateX(0%);
     opacity: 1;
   }
   80% {
-    transform: translateX(-200%); /* 左端を完全に通過 */
+    transform: translateX(-200%);
     opacity: 1;
   }
   100% {
-    transform: translateX(-230%); /* 左端を過ぎた後に完全に消える */
+    transform: translateX(-230%);
     opacity: 0;
   }
 }
